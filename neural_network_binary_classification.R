@@ -1,6 +1,3 @@
-X <- as.matrix(t(iris[,1:4]))
-Y <- as.numeric(iris$Species == "setosa")
-
 sigmoid <- function(x) {
   return(1/(1+exp(-x)))
 }
@@ -150,6 +147,13 @@ accuracy <- function(predictions, Y) {
 #================================================#
 
 
+# testing model
+
+# note the shape of X and Y
+X <- as.matrix(t(iris[,1:4]))
+Y <- as.numeric(iris$Species == "setosa") # converted Y into binary classification
+
+# run neural network
 my_model_params <- nn_model(X, Y, n_h = 4, num_iterations = 10000, print_cost = TRUE )
 predictions <- predict(my_model_params, X)
 accuracy(predictions, Y)
